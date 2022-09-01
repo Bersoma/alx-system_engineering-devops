@@ -1,1 +1,1 @@
-print absolute pasth name
+Display the contents list of your current directory.
