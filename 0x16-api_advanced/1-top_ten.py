@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-prints the titles of the first 10 hot posts listed for a given subreddit
+importing requests module
 """
 
 from requests import get
@@ -21,13 +21,13 @@ def top_ten(subreddit):
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
 
     response = get(url, headers=user_agent, params=params)
-    results = response.json()
+    all_data = response.json()
 
     try:
-        my_data = results.get('data').get('children')
+        raw1 = all_data.get('data').get('children')
 
-        for i in my_data:
+        for i in raw1:
             print(i.get('data').get('title'))
 
-    except Exception:
+    except:
         print("None")
